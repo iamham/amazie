@@ -1,0 +1,5 @@
+{
+  "name": "ShopGenie - AI Commerce Assistant",
+  "description": "A smart e-commerce chat widget powered by Gemini. Features bilingual support (Thai/English), image-based product search, and database integration via function calling.",
+  "requestFramePermissions": []
+}
