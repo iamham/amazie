@@ -125,7 +125,7 @@ const ChatWidget: React.FC = () => {
             </div>
           </div>
 
-          <div className="w-full flex-1 overflow-y-auto p-4 bg-gray-50 space-y-4 scrollbar-hide pt-[90px] pb-[ุ65px]">
+          <div className="w-full flex-1 overflow-y-auto bg-gray-50 space-y-4 scrollbar-hide py-[90px] px-4">
             {messages.map((msg) => (
               <div 
                 key={msg.id} 
