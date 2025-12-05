@@ -111,7 +111,7 @@ const ChatWidget: React.FC = () => {
   };
 
   return (
-    <div className="w-full bottom-6 right-6 z-50 flex flex-col items-end">
+    <div className="w-full bottom-6 right-6 z-50 flex flex-col items-end select-none">
           {/* Header */}
           <div className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 p-4 flex fixed items-center justify-between shadow-md">
             <div className="flex items-center space-x-2">
