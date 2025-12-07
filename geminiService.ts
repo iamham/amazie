@@ -4,17 +4,13 @@ import { searchProductsInDB } from "./data";
 
 const searchProductsTool: FunctionDeclaration = {
   name: 'searchProducts',
-  description: 'Search the product database for items based on keywords, visual descriptions, or categories. Use this when the user asks for recommendations or uploads an image seeking similar products.',
+  description: 'Search the product database for items based on keywords or visual descriptions. Use this when the user asks for recommendations or uploads an image seeking similar products.',
   parameters: {
     type: Type.OBJECT,
     properties: {
       query: {
         type: Type.STRING,
         description: 'Keywords to search for (e.g., "red dress", "noise cancelling headphones", "wooden lamp").',
-      },
-      category: {
-        type: Type.STRING,
-        description: 'The category of the product (e.g., "Clothing", "Electronics", "Home", "Food").',
       },
     },
     required: [],
@@ -154,7 +150,7 @@ export const sendMessageToGemini = async (
   } catch (error) {
     console.error("Gemini API Error:", error);
     return {
-      text: "Sorry, I encountered an error processing your request. Please check your API key or connection.",
+      text: "เหมือนว่าจะเล่นเยอะไปหน่อยจน API ติด Rate Limit นะ คงต้องใช้แบบจ่ายตังแหละ \n\n" + error,
     };
   }
 };

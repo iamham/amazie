@@ -16,7 +16,6 @@ const renderFormattedText = (text: string) => {
 };
 
 const ChatWidget: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       id: 'welcome',
@@ -42,7 +41,7 @@ const ChatWidget: React.FC = () => {
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages, isOpen]);
+  }, [messages]);
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -82,7 +81,6 @@ const ChatWidget: React.FC = () => {
 
     try {
       const response = await sendMessageToGemini(newMessage.text, newMessage.image);
-      
       const botMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
         role: MessageRole.MODEL,
@@ -113,14 +111,14 @@ const ChatWidget: React.FC = () => {
   return (
     <div className="w-full bottom-6 right-6 z-50 flex flex-col items-end select-none">
           {/* Header */}
-          <div className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 p-4 flex fixed items-center justify-between shadow-md">
+          <div className="w-full bg-gradient-to-r from-blue-100 to-[#2e6cf7] p-4 flex fixed items-center justify-between shadow-md">
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-white backdrop-blur-sm">
                <img src="https://www.amaze.shop/wp-content/uploads/2024/10/Amaze-App-Icon-IOS-1024x1024.png" />
               </div>
               <div>
-                <h3 className="text-white font-bold text-lg">Amazie</h3>
-                <p className="text-indigo-100 text-xs">ผู้ช่วย AI อัจฉริยะ • ออนไลน์</p>
+                <h3 className="text-blue-950 font-bold text-lg">Amazie</h3>
+                <p className="text-blue-900 text-xs">ผู้ช่วย AI อัจฉริยะ</p>
               </div>
             </div>
           </div>
@@ -134,7 +132,7 @@ const ChatWidget: React.FC = () => {
                 <div 
                   className={`max-w-[85%] px-4 py-3 rounded-2xl shadow-sm ${
                     msg.role === MessageRole.USER 
-                      ? 'bg-indigo-600 text-white rounded-br-none' 
+                      ? 'bg-[#2e6cf7] text-white rounded-br-none' 
                       : msg.role === MessageRole.SYSTEM
                         ? 'bg-red-100 text-red-600'
                         : 'bg-white text-gray-800 border border-gray-100 rounded-bl-none'
@@ -147,7 +145,7 @@ const ChatWidget: React.FC = () => {
                       className="max-w-full h-32 object-cover rounded-lg mb-2 border border-white/20" 
                     />
                   )}
-                  <p className="text-sm leading-relaxed whitespace-pre-wrap font-sans">
+                  <p className="text-sm leading-relaxed whitespace-pre-wrap font-sans overflow-hidden text-ellipsis">
                     {renderFormattedText(msg.text)}
                   </p>
                 </div>
@@ -191,7 +189,7 @@ const ChatWidget: React.FC = () => {
             <div className="flex items-end space-x-2">
               <button 
                 onClick={() => fileInputRef.current?.click()}
-                className="p-2 text-gray-400 hover:text-indigo-600 transition-colors bg-gray-50 rounded-full hover:bg-indigo-50"
+                className="p-2 text-gray-400 hover:text-blue-600 transition-colors bg-gray-50 rounded-full hover:bg-blue-50"
                 title="Upload Image"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -206,7 +204,7 @@ const ChatWidget: React.FC = () => {
                 />
               </button>
               
-              <div className="flex-1 bg-gray-50 rounded-2xl flex items-center px-3 border border-gray-200 focus-within:border-indigo-400 focus-within:ring-1 focus-within:ring-indigo-400 transition-all">
+              <div className="flex-1 bg-gray-50 rounded-2xl flex items-center px-3 border border-gray-200 focus-within:border-blue-400 focus-within:ring-1 focus-within:ring-blue-400 transition-all">
                 <input
                   type="text"
                   value={inputValue}
@@ -223,7 +221,7 @@ const ChatWidget: React.FC = () => {
                 className={`p-3 rounded-full transition-all shadow-md ${
                   isLoading || (!inputValue && !selectedImage)
                     ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                    : 'bg-indigo-600 text-white hover:bg-indigo-700 hover:shadow-lg hover:scale-105 active:scale-95'
+                    : 'bg-[#2e6cf7] text-white hover:bg-[#2e6cf7] hover:shadow-lg hover:scale-105 active:scale-95'
                 }`}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 rotate-90" viewBox="0 0 20 20" fill="currentColor">

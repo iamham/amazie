@@ -21,11 +21,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <p className="text-xs text-gray-500 line-clamp-2 mt-1">{product.description}</p>
         </div>
         <div className="flex items-center justify-between mt-2">
-          <span className="text-sm font-bold text-indigo-600">
-            10 บาท
-          </span>
-          <button className="px-2 py-1 bg-indigo-600 text-white text-xs rounded hover:bg-indigo-700 transition-colors">
-            View
+          <button className="px-2 py-1 bg-[#2e6cf7] text-white text-xs rounded hover:bg-[#2e6cf7] transition-colors">
+            ซื้อเลย
           </button>
         </div>
       </div>
