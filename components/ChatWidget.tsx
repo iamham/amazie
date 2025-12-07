@@ -20,7 +20,7 @@ const ChatWidget: React.FC = () => {
     {
       id: 'welcome',
       role: MessageRole.MODEL,
-      text: 'สวัสดีครับ 🙏 อยากให้ Amazie แนะนำอะไรสอบถามผมได้เลยนะครับ !',
+      text: 'สวัสดี 🙏 อยากให้ Amazie แนะนำอะไรสอบถามผมได้เลยนะครับ !',
     }
   ]);
   const [inputValue, setInputValue] = useState('');
@@ -35,7 +35,7 @@ const ChatWidget: React.FC = () => {
     if(key) {
         initializeChat(key);
     } else {
-        console.error("API_KEY is missing from environment variables.");
+        console.error("API_KEY is missing");
     }
   }, []);
 
@@ -62,7 +62,7 @@ const ChatWidget: React.FC = () => {
         setMessages(prev => [...prev, {
             id: Date.now().toString(),
             role: MessageRole.SYSTEM,
-            text: "Error: API_KEY is missing. Please configure your environment."
+            text: "Error: API_KEY is missing"
         }]);
         return;
     }
@@ -110,7 +110,6 @@ const ChatWidget: React.FC = () => {
 
   return (
     <div className="w-full bottom-6 right-6 z-50 flex flex-col items-end select-none">
-          {/* Header */}
           <div className="w-full bg-gradient-to-r from-blue-100 to-[#2e6cf7] p-4 flex fixed items-center justify-between shadow-md">
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-white backdrop-blur-sm">
@@ -129,7 +128,7 @@ const ChatWidget: React.FC = () => {
                 key={msg.id} 
                 className={`flex flex-col ${msg.role === MessageRole.USER ? 'items-end' : 'items-start'}`}
               >
-                <div 
+                <div
                   className={`max-w-[85%] px-4 py-3 rounded-2xl shadow-sm ${
                     msg.role === MessageRole.USER 
                       ? 'bg-[#2e6cf7] text-white rounded-br-none' 
@@ -151,14 +150,14 @@ const ChatWidget: React.FC = () => {
                 </div>
                 {msg.products && msg.products.length > 0 && (
                   <div className="mt-2 w-[85%] space-y-2 animate-pulse-fade-in">
-                    <p className="text-xs text-gray-500 ml-1 mb-1">Recommended Products:</p>
+                    <p className="text-xs text-gray-500 ml-1 mb-1">สินค้าแนะนำ:</p>
                     {msg.products.map(product => (
                       <ProductCard key={product.sku} product={product} />
                     ))}
                   </div>
                 )}
                 <span className="text-[10px] text-gray-400 mt-1 mx-1">
-                  {msg.role === MessageRole.USER ? 'You' : 'Amazie'}
+                  {msg.role === MessageRole.USER ? 'คุณ' : 'Amazie'}
                 </span>
               </div>
             ))}

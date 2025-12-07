@@ -136,7 +136,7 @@ export const sendMessageToGemini = async (
         }))
       });
       
-      finalResponseText = resultResponse.text || "Here are some products I found.";
+      finalResponseText = resultResponse.text || "นี่คือสินค้าที่ฉันเจอ";
 
     } else {
       finalResponseText = response.text || "";
