@@ -109,8 +109,8 @@ const ChatWidget: React.FC = () => {
   };
 
   return (
-    <div className="w-full bottom-6 right-6 z-50 flex flex-col items-end select-none">
-          <div className="w-full bg-gradient-to-r from-blue-100 to-[#2e6cf7] p-4 flex fixed items-center justify-between shadow-md">
+    <div className="w-full bottom-6 right-6 z-50 flex flex-col items-end">
+          <div className="w-full bg-gradient-to-r from-blue-100 to-[#2e6cf7] p-4 flex fixed items-center justify-between shadow-md  select-none">
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-white backdrop-blur-sm">
                <img src="https://www.amaze.shop/wp-content/uploads/2024/10/Amaze-App-Icon-IOS-1024x1024.png" />
@@ -129,7 +129,7 @@ const ChatWidget: React.FC = () => {
                 className={`flex flex-col ${msg.role === MessageRole.USER ? 'items-end' : 'items-start'}`}
               >
                 <div
-                  className={`max-w-[85%] px-4 py-3 rounded-2xl shadow-sm ${
+                  className={`max-w-[85%] px-4 py-3 rounded-2xl shadow-sm select-none ${
                     msg.role === MessageRole.USER 
                       ? 'bg-[#2e6cf7] text-white rounded-br-none' 
                       : msg.role === MessageRole.SYSTEM
