@@ -5,7 +5,7 @@ import ProductCard from './components/ProductCard';
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col font-sans pb-[75px]">
+    <div className="min-h-dvh bg-gray-50 flex flex-col font-sans pb-[75px]">
       <ChatWidget />
     </div>
   );
