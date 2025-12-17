@@ -107,7 +107,7 @@ export const sendMessageToGemini = async (
           const args = call.args as SearchParams;
           console.log("Gemini calling searchProducts with:", args);
 
-          const fullResults = searchProductsInDB(args.query, args.category);
+          const fullResults = searchProductsInDB(args.query);
           const results = fullResults.slice(0, 3);
           console.log(results);
           productsFound = results;

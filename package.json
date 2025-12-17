@@ -1,5 +1,5 @@
 {
-  "name": "shopgenie---ai-commerce-assistant",
+  "name": "Amazie---ai-commerce-assistant",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -12,8 +12,8 @@
     "@google/genai": "^1.30.0",
     "@tailwindcss/postcss": "^4.1.17",
     "postcss": "^8.5.6",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
     "tailwindcss": "^4.1.17"
   },
   "devDependencies": {
